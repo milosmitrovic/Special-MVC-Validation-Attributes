@@ -16,22 +16,24 @@ Special MVC validation attributes for cases when you need conditional validation
 
 ##Example of usage
 
-<code>
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using MUtility.Validation;
 
-namespace TestWebApplication.Models
-{
-    public class FormModel
-    {
-        [ConditionlRequired("Text2", ErrorMessage = "Text1 Error Message")]
-        public string Text1 { get; set; }
 
-        public string Text2 { get; set; } 
-    }
-}
-</code>
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Web;
+        using System.Web.Mvc;
+        using MUtility.Validation;
+        
+        namespace TestWebApplication.Models
+        {
+            public class FormModel
+            {
+                [ConditionlRequired("Text2", ErrorMessage = "Text1 Error Message")]
+                public string Text1 { get; set; }
+        
+                public string Text2 { get; set; } 
+            }
+        }
+
+
