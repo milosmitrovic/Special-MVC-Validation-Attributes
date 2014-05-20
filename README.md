@@ -51,8 +51,8 @@ Special MVC validation attributes for cases when you need conditional validation
                 [DateValidator("dd-MM-yyyy", ErrorMessage = "Incorrect date format")]
                 public string Birthday { get; set; }
         
-                //Required date field validator
-                [DateValidator(required:true, ErrorMessage = "Incorrect date format")]
+                //Required date field with forced date format
+                [DateValidator("dd-MM-yyyy", required: true, ErrorMessage = "Incorrect date format")]
                 public string Birthday { get; set; }
                 
                 
