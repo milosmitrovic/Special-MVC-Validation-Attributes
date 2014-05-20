@@ -86,8 +86,8 @@ Special MVC validation attributes for cases when you need conditional validation
 
 Available values of DateComparisonType enum:
 
-DateComparisonType.Equal;
-DateComparisonType.GreaterThan
-DateComparisonType.GreaterThanOrEqual
-DateComparisonType.LowerThan
-DateComparisonType.LowerThanOrEqual
+        DateComparisonType.Equal;
+        DateComparisonType.GreaterThan
+        DateComparisonType.GreaterThanOrEqual
+        DateComparisonType.LowerThan
+        DateComparisonType.LowerThanOrEqual
