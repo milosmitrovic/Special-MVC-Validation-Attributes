@@ -29,10 +29,29 @@ Special MVC validation attributes for cases when you need conditional validation
         {
             public class FormModel
             {
+                //Conditional required if "Text2" property is not null, empty or white space
                 [ConditionlRequired("Text2", ErrorMessage = "Text1 Error Message")]
                 public string Text1 { get; set; }
         
                 public string Text2 { get; set; } 
+                
+                
+                
+                
+                //Optional date field validator
+                [DateValidator(ErrorMessage = "Incorrect date format")]
+                public string Birthday { get; set; }
+        
+                //Date validation with forced date format
+                [DateValidator("dd-MM-yyyy", ErrorMessage = "Incorrect date format")]
+                public string Birthday { get; set; }
+        
+                //Required date field validator
+                [DateValidator(required:true, ErrorMessage = "Incorrect date format")]
+                public string Birthday { get; set; }
+                
+                
+                
             }
         }
 
