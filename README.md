@@ -29,6 +29,7 @@ Special MVC validation attributes for cases when you need conditional validation
         {
             public class FormModel
             {
+                //'''Conditional Required Attribute'''
                 //Conditional required if "Text2" property is not null, empty or white space
                 [ConditionlRequired("Text2", ErrorMessage = "Text1 Error Message")]
                 public string Text1 { get; set; }
