@@ -24,7 +24,7 @@ Special MVC validation attributes for cases when you need conditional validation
         using System.Linq;
         using System.Web;
         using System.Web.Mvc;
-        using MUtility.Validation;
+        using mUtility.Validation;
         
         namespace TestWebApp.Models
         {
@@ -59,17 +59,17 @@ Special MVC validation attributes for cases when you need conditional validation
                 
 ###DateTimeNow Comparison Attribute
 
-                //Compare date field with current datetime
-                [DateTimeNowComparison(DateComparisonType.GreaterThanOrEqual)]
-                public string Birthday { get; set; }
-                
-                //Compare date field only with current date
-                [DateTimeNowComparison(DateComparisonType.Equal, onlyDate:true)]
-                public string Birthday { get; set; }
-                
-                //Compare date field with current datetime and force date format
-                [DateTimeNowComparison("dd-MM-yyyy", DateComparisonType.LowerThan)]
-                public string Birthday { get; set; }
+                        //Compare date field with current datetime
+        [DateTimeNowComparison(DateComparisonType.LowerThan, ErrorMessage = "Date of birth must be lower than current date")]
+        public string Birthday { get; set; }
+        
+        //Compare date field only with current date
+        [DateTimeNowComparison(DateComparisonType.Equal, onlyDate: true, ErrorMessage = "Date of birth must be equal to current date")]
+        public string Birthday { get; set; }
+        
+        //Compare date field with current datetime and force date format
+        [DateTimeNowComparison("dd-MM-yyyy", DateComparisonType.LowerThanOrEqual, ErrorMessage = "Date of birth must be lower than or equal to current date"))]
+        public string Birthday { get; set; }
                 
                 
                 
