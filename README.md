@@ -25,7 +25,7 @@ Special MVC validation attributes for cases when you need conditional validation
         using System.Web.Mvc;
         using MUtility.Validation;
         
-        namespace TestWebApplication.Models
+        namespace TestWebApp.Models
         {
             public class FormModel
             {
