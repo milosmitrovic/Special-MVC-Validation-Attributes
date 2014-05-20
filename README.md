@@ -59,7 +59,7 @@ Special MVC validation attributes for cases when you need conditional validation
                 
 ###DateTimeNow Comparison Attribute
 
-                        //Compare date field with current datetime
+        //Compare date field with current datetime
         [DateTimeNowComparison(DateComparisonType.LowerThan, ErrorMessage = "Date of birth must be lower than current date")]
         public string Birthday { get; set; }
         
@@ -74,3 +74,20 @@ Special MVC validation attributes for cases when you need conditional validation
                 
                 
 ###Date Fields Compare Validator
+
+        [DateFieldsCompareValidator("DateTo",DateComparisonType.GreaterThan, ErrorMessage = "FromDate must be greater than ToDate")]
+        public string FromDate { get; set; }
+        
+        [DateFieldsCompareValidator("DateTo",DateComparisonType.LowerThanOrEqual, ErrorMessage = "ToDate must be lower than or equal to FromDate")]
+        public string ToDate { get; set; }
+        
+        
+###Date Comparison Types
+
+Available values of DateComparisonType enum:
+
+DateComparisonType.Equal;
+DateComparisonType.GreaterThan
+DateComparisonType.GreaterThanOrEqual
+DateComparisonType.LowerThan
+DateComparisonType.LowerThanOrEqual
