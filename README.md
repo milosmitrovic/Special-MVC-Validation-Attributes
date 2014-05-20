@@ -17,6 +17,7 @@ Special MVC validation attributes for cases when you need conditional validation
 ##Example of usage
 
 
+###Conditional Required Attribute
 
         using System;
         using System.Collections.Generic;
@@ -29,16 +30,19 @@ Special MVC validation attributes for cases when you need conditional validation
         {
             public class FormModel
             {
-                //'''Conditional Required Attribute'''
                 //Conditional required if "Text2" property is not null, empty or white space
                 [ConditionlRequired("Text2", ErrorMessage = "Text1 Error Message")]
                 public string Text1 { get; set; }
         
                 public string Text2 { get; set; } 
                 
-                
-                
-                
+            }
+        }
+
+
+
+###Date Validator Attribute
+
                 //Optional date field validator
                 [DateValidator(ErrorMessage = "Incorrect date format")]
                 public string Birthday { get; set; }
@@ -53,7 +57,4 @@ Special MVC validation attributes for cases when you need conditional validation
                 
                 
                 
-            }
-        }
-
-
+###DateTimeNow Comparison Attribute
