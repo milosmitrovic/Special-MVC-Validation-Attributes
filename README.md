@@ -73,7 +73,7 @@ Special MVC validation attributes for cases when you need conditional validation
                 
                 
                 
-###Date Fields Compare Validator
+###Date Fields Compare Attribute
 
         //Comparison of two date fields
         [DateFieldsCompareValidator("DateTo",DateComparisonType.GreaterThan, ErrorMessage = "FromDate must be greater than ToDate")]
