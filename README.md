@@ -9,7 +9,7 @@ Special MVC validation attributes for cases when you need conditional validation
 
 [DateValidator] - for validating date format
 
-[DateFieldsCompare] - for date comparison if two date properties
+[DateFieldsCompare] - for date comparison of two date properties
 
 [DateTimeNowComparison] - for date comparison with current date or datetime
 
