@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Special mvc validation attributes by milosmitrovic</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Special mvc validation attributes</h1>
+          <h2>Special MVC validation attributes for cases when you need conditional validation or/and date comparison. </h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/milosmitrovic/Special-MVC-Validation-Attributes/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/milosmitrovic/Special-MVC-Validation-Attributes/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/milosmitrovic/Special-MVC-Validation-Attributes" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="special-mvc-validation-attributes" class="anchor" href="#special-mvc-validation-attributes"><span class="octicon octicon-link"></span></a>Special MVC Validation Attributes</h1>
+
+<p>Special MVC validation attributes for cases when you need conditional validation or/and date comparison. </p>
+
+<h2>
+<a name="attributes-included" class="anchor" href="#attributes-included"><span class="octicon octicon-link"></span></a>Attributes included</h2>
+
+<p>[ConditionlRequired] - for conditional requred validation</p>
+
+<p>[DateValidator] - for validating date format</p>
+
+<p>[DateFieldsCompare] - for date comparison of two date properties</p>
+
+<p>[DateTimeNowComparison] - for date comparison with current date or datetime</p>
+
+<h2>
+<a name="example-of-usage" class="anchor" href="#example-of-usage"><span class="octicon octicon-link"></span></a>Example of usage</h2>
+
+<h3>
+<a name="conditional-required-attribute" class="anchor" href="#conditional-required-attribute"><span class="octicon octicon-link"></span></a>Conditional Required Attribute</h3>
+
+<pre><code>    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using mUtility.Validation;
+
+    namespace TestWebApp.Models
+    {
+        public class FormModel
+        {
+            //Conditional required if "Text2" property is not null, empty or white space
+            [ConditionlRequired("Text2", ErrorMessage = "Text1 Error Message")]
+            public string Text1 { get; set; }
+
+            public string Text2 { get; set; } 
+
+        }
+    }
+</code></pre>
+
+<h3>
+<a name="date-validator-attribute" class="anchor" href="#date-validator-attribute"><span class="octicon octicon-link"></span></a>Date Validator Attribute</h3>
+
+<pre><code>            //Optional date field validator
+            [DateValidator(ErrorMessage = "Incorrect date format")]
+            public string Birthday { get; set; }
+
+            //Date validation with forced date format
+            [DateValidator("dd-MM-yyyy", ErrorMessage = "Incorrect date format")]
+            public string Birthday { get; set; }
+
+            //Required date field with forced date format
+            [DateValidator("dd-MM-yyyy", required: true, ErrorMessage = "Incorrect date format")]
+            public string Birthday { get; set; }
+</code></pre>
+
+<h3>
+<a name="datetimenow-comparison-attribute" class="anchor" href="#datetimenow-comparison-attribute"><span class="octicon octicon-link"></span></a>DateTimeNow Comparison Attribute</h3>
+
+<pre><code>    //Compare date field with current datetime
+    [DateTimeNowComparison(DateComparisonType.LowerThan, ErrorMessage = "Date of birth must be lower than current date")]
+    public string Birthday { get; set; }
+
+    //Compare date field only with current date
+    [DateTimeNowComparison(DateComparisonType.Equal, onlyDate: true, ErrorMessage = "Date of birth must be equal to current date")]
+    public string Birthday { get; set; }
+
+    //Compare date field with current datetime and force date format
+    [DateTimeNowComparison("dd-MM-yyyy", DateComparisonType.LowerThanOrEqual, ErrorMessage = "Date of birth must be lower than or equal to current date"))]
+    public string Birthday { get; set; }
+</code></pre>
+
+<h3>
+<a name="date-fields-compare-attribute" class="anchor" href="#date-fields-compare-attribute"><span class="octicon octicon-link"></span></a>Date Fields Compare Attribute</h3>
+
+<pre><code>    //Comparison of two date fields
+    [DateFieldsCompareValidator("DateTo",DateComparisonType.GreaterThan, ErrorMessage = "FromDate must be greater than ToDate")]
+    public string FromDate { get; set; }
+
+    [DateFieldsCompareValidator("FromDate",DateComparisonType.LowerThanOrEqual, ErrorMessage = "ToDate must be lower than or equal to FromDate")]
+    public string ToDate { get; set; }
+</code></pre>
+
+<h3>
+<a name="date-comparison-types" class="anchor" href="#date-comparison-types"><span class="octicon octicon-link"></span></a>Date Comparison Types</h3>
+
+<p>Available values of DateComparisonType enum:</p>
+
+<pre><code>    DateComparisonType.Equal;
+    DateComparisonType.GreaterThan
+    DateComparisonType.GreaterThanOrEqual
+    DateComparisonType.LowerThan
+    DateComparisonType.LowerThanOrEqual
+</code></pre>
+        </section>
+
+        <footer>
+          Special mvc validation attributes is maintained by <a href="https://github.com/milosmitrovic">milosmitrovic</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
